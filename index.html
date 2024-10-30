@@ -6,13 +6,14 @@
     <title>KARRI KOMAL SRIRAM LAKSHMAN REDDY's Website</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Styles for responsiveness */
         body {
             background-color: black;
             color: white;
             font-family: Arial, sans-serif;
-            font-size: 16px;
             margin: 0;
             padding: 0;
+            font-size: 16px;
         }
         h1, h2 {
             text-align: center;
@@ -21,19 +22,31 @@
             padding: 20px;
             margin: 20px;
             border-radius: 8px;
-            background-color: black;
+            background-color: #111;
             border: 1px solid #444;
         }
-        img {
+        img, video {
             border-radius: 10px;
-            width: 300px;
+            width: 100%;
+            max-width: 100%;
             height: auto;
         }
-        .certification img, .achievement img {
-            width: 350px;
-            height: auto;
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
+        .flex-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .text-content, .image-content {
+            flex: 1;
+            min-width: 280px;
+            max-width: 450px;
+        }
         /* Splash Screen */
         #splash {
             display: flex;
@@ -47,7 +60,6 @@
             width: 100%;
             z-index: 999;
         }
-
         /* Typing effect */
         .typing {
             border-right: 2px solid white;
@@ -56,17 +68,28 @@
             overflow: hidden;
             animation: blink-caret 0.75s step-end infinite;
         }
-
         @keyframes blink-caret {
             from, to { border-color: transparent; }
             50% { border-color: white; }
         }
-
         /* LinkedIn Icon */
         .linkedin-icon {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             margin-top: 10px;
+        }
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .flex-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            h1, h2 {
+                font-size: 1.5em;
+            }
+            body {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -78,63 +101,67 @@
 
     <main id="main-content" style="display: none;">
         <!-- First Section: Image Left, Text Right -->
-        <div class="section" style="display: flex; align-items: center;">
-           <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/MAINIMAGE.jpg" alt="Main Image" style="width:300px; margin-right: 20px;">
-            <h2>KARRI KOMAL SRIRAM LAKSHMAN REDDY</h2>
+        <div class="section flex-row">
+            <div class="image-content">
+                <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/MAINIMAGE.jpg" alt="Main Image">
+            </div>
+            <div class="text-content">
+                <h2>KARRI KOMAL SRIRAM LAKSHMAN REDDY</h2>
+            </div>
         </div>
 
         <!-- Second Section: Text Left, Image Right -->
-        <div class="section" style="display: flex; align-items: center;">
-            <div style="flex: 1; padding: 10px;">
+        <div class="section flex-row">
+            <div class="text-content">
                 <h2 style="color: red;">Who Am I?</h2>
-                <p>I’m Karri Komal Sriram Lakshman Reddy, a Computer Science student at B.V. Raju Degree College with a keen interest in technology and innovation. As the founder of ProdLoca, I’m exploring ways to enhance product availability for local retailers using AI. I enjoy learning new AI tools and have hands-on experience with website development and video editing, always looking for opportunities to grow and apply my skills.</p>
+                <p>I’m Karri Komal Sriram Lakshman Reddy, a Computer Science student at B.V. Raju Degree College with a keen interest in technology and innovation. As the founder of ProdLoca, I’m exploring ways to enhance product availability for local retailers using AI.</p>
                 <p>Always Exploring, Always Growing</p>
             </div>
-            <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/BEACHIMAGE.jpg" alt="Beach Image" style="width:300px;">
+            <div class="image-content">
+                <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/BEACHIMAGE.jpg" alt="Beach Image">
+            </div>
         </div>
 
-        <!-- Introducing ProdLoca Section: Image Left, Text Right -->
-        <div class="section" style="display: flex; align-items: center;">
-            <video width="560" height="315" controls style="margin-right: 20px;">
-                <source src="https://raw.githubusercontent.com/komal03112004/my-website/main/PRODLOCA.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div style="flex: 1; padding: 10px;">
+        <!-- Introducing ProdLoca Section -->
+        <div class="section flex-row">
+            <div class="image-content">
+                <video width="100%" controls>
+                    <source src="https://raw.githubusercontent.com/komal03112004/my-website/main/PRODLOCA.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="text-content">
                 <h2>INTRODUCING - "PRODLOCA"</h2>
-                <p>My Game-Changing Idea for Local Retail</p>
-                <p>ProdLoca is a transformative solution aimed at enhancing the product availability of local retailers. Utilizing cutting-edge AI technologies, ProdLoca enables retailers to manage their inventory in real-time, ensuring customers always find what they're looking for. This innovation not only supports local businesses but also enriches the shopping experience by providing instant access to product information. As the founder, I am committed to leveraging technology to create seamless interactions between retailers and consumers, fostering growth in the local market.</p>
+                <p>ProdLoca is a transformative solution aimed at enhancing the product availability of local retailers. Utilizing cutting-edge AI technologies, ProdLoca enables retailers to manage their inventory in real-time, ensuring customers always find what they're looking for.</p>
             </div>
         </div>
 
         <!-- AI Automation Project Section -->
-        <div class="section">
+        <div class="section content-wrapper">
             <h2>My AI Automation Project</h2>
-            <p>This AI-based automation project aims to redefine personal motivation through realistic and impactful quotes. Its primary goals include:
-                <ul>
-                    <li>Generating highly relatable quotes centered around self-improvement and life realities.</li>
-                    <li>Encouraging users by blending harsh truths with motivational messages, fostering a growth mindset.</li>
-                    <li>Automating continuous content generation for social media platforms, such as X and Threads, with minimal manual input.</li>
-                </ul>
-            </p>
-            <p>*How It Works:*<br>
-                This AI system utilizes a vast database of quotes derived from multiple sources, including web scraping, books, and social media analysis. It is trained to provide content that resonates deeply with users by understanding their needs for genuine, practical inspiration. Through this AI, I strive to blend innovation with meaningful content, presenting self-reflective prompts that challenge, inspire, and encourage achievement in personal goals.</p>
-            <p>The system continuously trains itself and adapts, refining its posts to align with trending topics and user interactions, becoming an evolving source of inspiration. My vision is to create an AI tool that does more than motivate—it encourages users to engage with a vision of their potential.</p>
+            <p>This AI-based automation project aims to redefine personal motivation through realistic and impactful quotes.</p>
+            <ul>
+                <li>Generating highly relatable quotes centered around self-improvement and life realities.</li>
+                <li>Encouraging users by blending harsh truths with motivational messages, fostering a growth mindset.</li>
+                <li>Automating content generation for social media platforms, such as X and Threads.</li>
+            </ul>
+            <p>Through this AI, I strive to blend innovation with meaningful content, presenting self-reflective prompts that challenge and encourage achievement in personal goals.</p>
         </div>
 
         <!-- Course Certifications Section -->
         <div class="section">
             <h2>Course Certifications</h2>
-            <div class="certification" style="display: flex; align-items: center;">
-                <div style="flex: 1; padding: 10px;">
-                    <h3>Certificate of Completion for the 21st Century Employability Skills Program - Advanced</h3>
-                    <p>Through the 21st Century Employability Skills Program - Advanced, I have enhanced my communication skills, particularly in English, and gained valuable insights into effective workplace interactions. This program has equipped me with the ability to articulate ideas clearly and collaborate efficiently with teams. I also developed critical thinking, problem-solving, and leadership skills.</p>
+            <div class="certification flex-row">
+                <div class="text-content">
+                    <h3>Certificate of Completion for 21st Century Employability Skills Program - Advanced</h3>
+                    <p>This program enhanced my communication skills, critical thinking, and leadership abilities.</p>
                 </div>
                 <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/WADHWANICERTIFICATE.jpeg" alt="Wadhwani Certificate">
             </div>
-            <div class="certification" style="display: flex; align-items: center;">
-                <div style="flex: 1; padding: 10px;">
+            <div class="certification flex-row">
+                <div class="text-content">
                     <h3>Certificate of Completion for the Complete Java Development Bootcamp - Udemy</h3>
-                    <p>Through the Java development bootcamp, I acquired a solid understanding of Java programming principles. This experience helped me develop essential coding skills, work on real-world projects, and boost my problem-solving abilities. The bootcamp has prepared me to take on challenges in software development and further my career in technology.</p>
+                    <p>This bootcamp provided me with foundational Java programming skills and prepared me for real-world projects.</p>
                 </div>
                 <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/JAVACERTIFICATE.jpeg" alt="Java Certificate">
             </div>
@@ -143,36 +170,30 @@
         <!-- Extra Curricular Achievements Section -->
         <div class="section">
             <h2>Extra Curricular Achievements</h2>
-            <div class="achievement" style="display: flex; align-items: center;">
-                <div style="flex: 1; padding: 10px;">
-                    <h3>Certificate For Winning Second Prize In Elocution Event Conducted By English Eclat Club of B.V.Raju College.</h3>
-                    <p>I received the second prize in an elocution activity where I presented on the topic “7 Ways to Success.” This experience allowed me to develop my public speaking skills and effectively communicate ideas. It also reinforced my belief in the importance of perseverance, goal-setting, and continuous improvement in the journey towards success.</p>
+            <div class="achievement flex-row">
+                <div class="text-content">
+                    <h3>Second Prize in Elocution Event - English Eclat Club</h3>
+                    <p>Presented on "7 Ways to Success," which strengthened my public speaking skills.</p>
                 </div>
                 <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/ENGLISHCERTIFICATE.jpeg" alt="Elocution Certificate">
             </div>
-            <div class="achievement" style="display: flex; align-items: center;">
-                <div style="flex: 1; padding: 10px;">
-                    <h3>Certificate for Poster Presentation on Blockchain Technology and Cryptocurrency</h3>
-                    <p>This certificate recognizes my participation in a poster presentation focusing on blockchain technology and cryptocurrency. The experience enriched my knowledge of emerging technologies and their potential to disrupt industries, emphasizing the importance of innovation in today's digital landscape.</p>
+            <div class="achievement flex-row">
+                <div class="text-content">
+                    <h3>Poster Presentation on Blockchain Technology and Cryptocurrency</h3>
+                    <p>This experience enriched my knowledge of emerging technologies.</p>
                 </div>
-                <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/CSCERTIFICATE.jpeg" alt="Computer Science Certificate">
-            </div>
-            <div class="achievement" style="display: flex; align-items: center;">
-                <div style="flex: 1; padding: 10px;">
-                    <h3>Certificate of Participation - IEEE Workshop on Data Analytics, Visualization, UI & UX</h3>
-                    <p>This workshop, conducted by IEEE, provided me with hands-on experience in data analytics, visualization, and UI/UX design principles. I gained a deeper understanding of how to effectively communicate data-driven insights and design intuitive interfaces that enhance user experience.</p>
-                </div>
-                <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/IEEECERTIFICATE.jpeg" alt="IEEE Certificate">
+                <img src="https://raw.githubusercontent.com/komal03112004/my-website/main/CSCERTIFICATE.jpeg" alt="CS Certificate">
             </div>
         </div>
 
         <!-- Connect with Me on LinkedIn Section -->
-<div class="section" style="text-align: center;">
-    <h2>Connect with Me on LinkedIn</h2>
-    <a href="https://www.linkedin.com/in/komal-sriram-lakshman-reddy-karri-6746b828b" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn Logo" class="linkedin-icon" style="width: 40px; height: 40px; margin-top: 10px;">
-    </a>
-</div>
+        <div class="section content-wrapper" style="text-align: center;">
+            <h2>Connect with Me on LinkedIn</h2>
+            <a href="https://www.linkedin.com/in/komal-sriram-lakshman-reddy-karri-6746b828b" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn Logo" class="linkedin-icon">
+            </a>
+        </div>
+    </main>
 
     <script>
         let text = "Welcome to Karri Komal Sriram Lakshman Reddy's Website!";
@@ -190,8 +211,9 @@
             }
         }
 
-        type();
+        window.onload = type;
     </script>
 </body>
 </html>
+
 
