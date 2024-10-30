@@ -9,17 +9,19 @@ body {
 }
 h1, h2 {
     text-align: center;
+    margin: 0;
+    padding: 10px;
 }
 .section {
     padding: 20px;
-    margin: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
     border-radius: 8px;
     background-color: #111;
     border: 1px solid #444;
 }
 img, video {
     border-radius: 10px;
-    width: 100%;
     max-width: 100%;
     height: auto;
 }
@@ -33,11 +35,20 @@ img, video {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 .text-content, .image-content {
     flex: 1;
-    min-width: 280px;
-    max-width: 450px;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 10px;
+}
+
+/* Specific Image Constraints */
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /* Splash Screen */
@@ -75,7 +86,7 @@ img, video {
 }
 
 /* Responsive styling */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .flex-row {
         flex-direction: column;
         align-items: center;
@@ -87,4 +98,14 @@ img, video {
         font-size: 14px;
     }
 }
+@media (max-width: 768px) {
+    .section {
+        margin: 10px;
+        padding: 15px;
+    }
+    h1, h2 {
+        font-size: 1.3em;
+    }
+}
+
 
